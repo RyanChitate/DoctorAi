@@ -61,7 +61,12 @@ def symptom_checker(symptoms):
         "fever": "You might have the flu.",
         "headache": "It could be a migraine.",
         "cough": "You might have a common cold.",
-        "sore throat": "You might have a throat infection."
+        "sore throat": "You might have a throat infection.",
+        "chest pain": "You migth just be suffering from a reflux disease.",
+        "Shortness of breath": "You might suffer with anxiety or you could be having a asthma attack.",
+        "Rash" : "You can be having an allergic reaction to something.", 
+        "Joint pain": "You could be dealing with arthiritis.", 
+        "Dizziness": "Your blood pressure could be low"
     }
 
     diagnosis = "No diagnosis found."
