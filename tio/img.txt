@@ -1,0 +1,11 @@
+spinal h : img2
+spinal uh : All 
+
+liver h: none 
+liver uh : all
+
+broken h :none
+broken uh : all 
+
+brain h : all
+brain uh : none 

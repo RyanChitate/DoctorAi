@@ -1,0 +1,31 @@
+[
+    {"image_path": "download-1.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "download-2.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "download-3.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "download.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "images-1.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "images-2.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "f0375166-800px-wm.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "images-1.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "images-3.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "images-5.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "images.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"},
+    {"image_path": "67c353175c6f99a682d2d89a793bb9_big_gallery.jpg", "correct_label": "Healthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "8474b9eda07dbabbfb972770e3fa67_big_gallery.jpg", "correct_label": "Healthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "download.jpg", "correct_label": "Healthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "13244_2010_34_Fig3_HTML.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "images-1.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "images-2.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "images-3.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "13244_2010_34_Fig3_HTML.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "images-1.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "images-2.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"},
+    {"image_path": "images-3.jpg", "correct_label": "Unhealthy", "correct_body_part": "abdomen", "body_disease": "Liver"}
+]
+{"image_path": "download-1.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"}
+{"image_path": "download-2.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"}
+{"image_path": "download-3.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"}
+{"image_path": "download.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"}
+{"image_path": "images-1.jpg", "correct_label": "Healthy", "correct_body_part": "back", "body_disease": "Spinal"}
+{"image_path": "images-1.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"}
+{"image_path": "images-2.jpg", "correct_label": "Unhealthy", "correct_body_part": "back", "body_disease": "Spinal"}
