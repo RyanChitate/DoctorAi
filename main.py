@@ -1,4 +1,5 @@
 import streamlit as st
+import model  # Ensure the model.py is in the same directory or properly referenced
 
 # Sample user database (initially pre-populated)
 if 'secrets' not in st.session_state:
@@ -124,8 +125,11 @@ def main_page():
     app_mode = st.sidebar.selectbox("Choose your Doctor", ["Disease Diagnosis", "Personalized Medicine", "Symptom Checker", "Support Page"])
 
     if app_mode == "Disease Diagnosis":
-        import disease_diagnosis
-        disease_diagnosis.run()
+        try:
+            model.run()
+        except Exception as e:
+            st.error(f"An error occurred while running the model: {e}")
+            st.stop()
 
     elif app_mode == "Personalized Medicine":
         import treatment
