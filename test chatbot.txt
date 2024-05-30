@@ -1,0 +1,65 @@
+Common Cold: "I have a runny nose and a sore throat."
+
+Flu: "I have a fever, cough, muscle pain, and chills."
+
+Migraine: "I have a severe headache and feel nauseous."
+
+COVID-19: "I have a fever, cough, and difficulty breathing."
+
+Pneumonia: "I have a high fever, persistent cough, and chest pain."
+
+Meningitis: "I have a high fever, severe headache, and feel nauseous."
+
+Heart Attack: "I have chest pain, nausea, and feel extremely fatigued."
+
+Stroke: "I have a severe headache and difficulty breathing."
+
+Bronchitis: "I have a cough, fatigue, and chest tightness."
+
+Asthma: "I have a cough, difficulty breathing, and chest tightness."
+
+Allergic Rhinitis: "I have a runny nose and a sore throat."
+
+Epilepsy: "I have seizures and feel confused."
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Sure, here are prompts for each disease that will ensure none of the top three diagnoses have a 0% probability:
+
+1. **Common Cold:**
+   - Prompt: "I have a runny nose and a sore throat."
+
+2. **Flu:**
+   - Prompt: "I have a fever, cough, and muscle pain."
+
+3. **Migraine:**
+   - Prompt: "I'm experiencing a severe headache and nausea."
+
+4. **COVID-19:**
+   - Prompt: "I have a fever, cough, and difficulty breathing."
+
+5. **Pneumonia:**
+   - Prompt: "I have a high fever, persistent cough, and chest pain."
+
+6. **Meningitis:**
+   - Prompt: "I have a high fever, severe headache, and confusion."
+
+7. **Heart Attack:**
+   - Prompt: "I'm feeling chest pain, extreme fatigue, and shortness of breath."
+
+8. **Stroke:**
+   - Prompt: "I have a severe headache, difficulty breathing, and confusion."
+
+9. **Bronchitis:**
+   - Prompt: "I have a cough, fatigue, and chest tightness."
+
+10. **Asthma:**
+    - Prompt: "I'm experiencing coughing, shortness of breath, and chest tightness."
+
+11. **Allergic Rhinitis:**
+    - Prompt: "I have a runny nose, sore throat, and fatigue."
+
+12. **Epilepsy:**
+    - Prompt: "I've had seizures and confusion."
+
+Using these prompts, each of the top three diagnoses will have a non-zero probability when the NLP answers.
