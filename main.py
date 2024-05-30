@@ -1,6 +1,5 @@
 import streamlit as st
-import model  # Ensure the model.py is in the same directory or properly referenced
-
+import model
 # Sample user database (initially pre-populated)
 if 'secrets' not in st.session_state:
     st.session_state.secrets = {
@@ -24,55 +23,12 @@ if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.username = ''
 
-# Custom CSS for styling
-st.markdown("""
-    <style>
-    .main {
-        background: linear-gradient(to bottom right, #000033, #000066, #000099, #0000cc, #0000ff);
-        color: white;
-        font-family: 'Arial', sans-serif;
-    }
-    .stTextInput > div > div > input {
-        color: black;
-    }
-    .stButton button {
-        color: white;
-        background-color: #0044cc;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        transition-duration: 0.4s;
-        cursor: pointer;
-    }
-    .stButton button:hover {
-        background-color: white;
-        color: #0044cc;
-    }
-    .stTitle h1 {
-        color: white;
-        text-align: center;
-    }
-    .centered-title {
-        text-align: center;
-        font-size: 2.5em;
-        margin-top: 0;
-        margin-bottom: 0.5em;
-    }
-    .stApp {
-        background: linear-gradient(135deg, #000000 0%, #0044cc 100%);
-        color: white;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+
 
 def login():
     # Center the image with padding
     st.markdown("<div style='text-align: center; margin-left: 100px; margin-right: auto;'>", unsafe_allow_html=True)
-    st.image("imgs/logo.png", width=150)
+    st.image("imgs/logo.png", width=150 )
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("<h1><center>Login Page<center></h1>", unsafe_allow_html=True)
@@ -125,11 +81,8 @@ def main_page():
     app_mode = st.sidebar.selectbox("Choose your Doctor", ["Disease Diagnosis", "Personalized Medicine", "Symptom Checker", "Support Page"])
 
     if app_mode == "Disease Diagnosis":
-        try:
-            model.run()
-        except Exception as e:
-            st.error(f"An error occurred while running the model: {e}")
-            st.stop()
+        import model
+        model.run()
 
     elif app_mode == "Personalized Medicine":
         import treatment

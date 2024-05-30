@@ -37,15 +37,6 @@ def run():
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
 
-        # Define body part labels corresponding to each predicted class
-        body_parts = {
-            'Healthy': 'Unknown',
-            'Unhealthy': 'Unknown',
-            'Brain Cancer': 'Brain',
-            'Liver Disease': 'Liver',
-            'Broken Bone': 'Bone'
-        }
-
         # Function to make predictions
         def predict(images):
             predictions = []
@@ -62,9 +53,8 @@ def run():
                 predicted_item = min(predicted.item(), len(class_labels) - 1)
 
                 predicted_class = class_labels[predicted_item]  # Get the predicted class label
-                body_part = body_parts[predicted_class]  # Get the corresponding body part label
 
-                predictions.append((predicted_class, body_part))
+                predictions.append(predicted_class)
 
             return predictions
 
@@ -83,14 +73,15 @@ def run():
                 with col2:
                     predictions = predict([uploaded_file])
                     for prediction in predictions:
-                        prediction_class, body_part = prediction
-                        st.write(f'**Predicted class:** {"🌱 **Healthy**" if prediction_class == "Healthy" else "🩺 **Unhealthy**"}')
-                        if prediction_class == 'Unhealthy' or body_part == 'Unknown':
-                            st.write('Address urgently! 🚨 Urgent care needed.')
-                        else:
+                        if prediction == 'Healthy':
+                            st.write(f'**Predicted class:** {"🌱 **Healthy**"}')
                             st.write('Not severe. 🩹 No need for follow-up.')
-                        st.write(f'**Body part:** {body_part} {"🧠" if body_part == "Brain" else "🫀" if body_part == "Liver" else "🦴" if body_part == "Bone" else "🟦"}')
+                        else:
+                            st.write(f'**Predicted class:** {"🩺 **Unhealthy**"}')
+                            st.write('Address urgently! 🚨 Urgent care needed.')
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
         st.stop()
+
+run()
