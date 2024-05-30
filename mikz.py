@@ -69,21 +69,8 @@ def symptom_checker(symptoms):
         if word in symptom_db:
             diagnosis = symptom_db[word]
             break
-            
+           
     return diagnosis
-
-# Streamlit app with blue and black mixed background
-st.markdown(
-    """
-    <style>
-    body {
-        background: linear-gradient(to bottom right, #000033, #000066, #000099, #0000cc, #0000ff);
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Streamlit app
 st.markdown("<h1 style='text-align: center; color: blue;'>🩺 DoctorAI</h1>", unsafe_allow_html=True)
