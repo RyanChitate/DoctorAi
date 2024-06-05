@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 
 def run():
     # Title
-    st.title('Personalized Treatment Recommendation')
+    st.title('👨‍⚕️👩‍⚕️ Personalized Treatment Recommendation 🩹🩺')
 
     # Load synthetic dataset (Replace with your own dataset)
     data = pd.DataFrame({
@@ -45,7 +45,7 @@ def run():
     # Model evaluation
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    st.write(f"Model Accuracy: {accuracy:.2f}")
+    # st.write(f"Model Accuracy: {accuracy:.2f}")
 
     # User input for prediction
     st.write('Enter patient characteristics:')

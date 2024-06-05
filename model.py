@@ -59,7 +59,7 @@ def run():
             return predictions
 
         # Streamlit app
-        st.title('Disease Diagnosis Tool 👨‍⚕️')  # Add doctor emoji to the title
+        st.title('👩‍⚕️ Disease Diagnosis Tool 👨‍⚕️')  # Add doctor emoji to the title
 
         uploaded_files = st.file_uploader("Upload multiple images", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 

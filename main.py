@@ -26,17 +26,18 @@ if 'logged_in' not in st.session_state:
 
 
 def login():
+    
     # Center the image with padding
     st.markdown("<div style='text-align: center; margin-left: 100px; margin-right: auto;'>", unsafe_allow_html=True)
-    st.image("imgs/logo.png", width=150 )
+
     st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("<h1><center>Login Page<center></h1>", unsafe_allow_html=True)
+    st.markdown("<h1><center>🩺 Login Page 🩺<center></h1>", unsafe_allow_html=True)
 
-    username = st.text_input("Username")
+    username = st.text_input("👤 Username")
     password = st.text_input("Password", type="password")
     
-    if st.button("Login"):
+    if st.button("🔐 Login"):
         if check_login(username, password):
             st.session_state.logged_in = True
             st.session_state.username = username
@@ -44,7 +45,7 @@ def login():
         else:
             st.error("Invalid username or password")
 
-    if st.button("Go to Sign Up"):
+    if st.button("🔏 Go to Sign Up"):
         st.session_state.show_signup = True
         st.experimental_rerun()
 
@@ -55,7 +56,7 @@ def signup():
     password = st.text_input("Choose a Password", type="password")
     confirm_password = st.text_input("Confirm Password", type="password")
 
-    if st.button("Sign Up"):
+    if st.button("🔏 Sign Up"):
         if password != confirm_password:
             st.error("Passwords do not match")
         else:

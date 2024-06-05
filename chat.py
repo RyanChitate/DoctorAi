@@ -34,7 +34,9 @@ symptoms = {
     "Confusion or Disorientation": ["confusion", "disorientation"],
     "Unconsciousness": ["unconsciousness", "fainting"],
     "Seizures": ["seizures", "convulsions"],
-    "Chest Tightness": ["chest tightness", "tight chest"]
+    "Chest Tightness": ["chest tightness", "tight chest"],
+    "Rashes": ["rash", "skin rash"],
+    "Stomach Problems": ["stomach pain", "abdominal pain", "diarrhea", "constipation", "bloating"]
 }
 
 # Define diseases and their associated symptoms
@@ -51,6 +53,8 @@ diseases = {
     "Asthma": ["Cough", "Shortness of Breath", "Chest Tightness", "Muscle Weakness"],
     "Allergic Rhinitis": ["Runny Nose", "Sore Throat", "Fatigue"],
     "Epilepsy": ["Seizures", "Confusion or Disorientation"],
+    "Dermatitis": ["Rashes"],
+    "Gastroenteritis": ["Stomach Problems", "Nausea", "Fatigue"]
 }
 
 # Bot responses
@@ -98,26 +102,24 @@ def calculate_diagnosis(input_text):
 
 # Function to generate bot response
 def get_bot_response(user_input, conversation_history):
-    user_input = preprocess_text(user_input)
-    if any(greeting in user_input for greeting in GREETINGS_IN):
-        return random.choice(GREETINGS_OUT), conversation_history
-    elif any(thanks in user_input for thanks in THANKS_IN):
-        return random.choice(THANKS_OUT), conversation_history
-    elif any(farewell in user_input for farewell in FAREWELLS_IN):
-        return random.choice(FAREWELLS_OUT), conversation_history
+    preprocessed_input = preprocess_text(user_input)
+    if any(greeting in preprocessed_input for greeting in GREETINGS_IN):
+        response = random.choice(GREETINGS_OUT)
+    elif any(thanks in preprocessed_input for thanks in THANKS_IN):
+        response = random.choice(THANKS_OUT)
+    elif any(farewell in preprocessed_input for farewell in FAREWELLS_IN):
+        response = random.choice(FAREWELLS_OUT)
     else:
-        diagnosis = calculate_diagnosis(user_input)
+        diagnosis = calculate_diagnosis(preprocessed_input)
         response = ""
         for idx, (disease, percentage) in enumerate(diagnosis, 1):
             if idx == 1 and percentage == 0:
-                percentage = 0
-                response += f"No diagnosis (0%)\n"
-                response += "Please contact a healthcare professional immediately for further assistance.\n\n"
+                response += f"No diagnosis (0%)\nPlease contact a healthcare professional immediately for further assistance.\n\n"
             else:
                 response += f"{idx}. {disease} ({percentage:.2f}%)\n"
                 response += get_advice_for_disease(disease) + "\n\n"
-        conversation_history.insert(0, {"user": user_input, "bot": response.strip()})
-        return response.strip(), conversation_history
+    conversation_history.append({"user": user_input, "bot": response.strip()})
+    return response.strip(), conversation_history
 
 # Function to get advice for a diagnosed disease
 def get_advice_for_disease(disease):
@@ -133,9 +135,10 @@ def get_advice_for_disease(disease):
         "Bronchitis": "Bronchitis can cause coughing, wheezing, and chest discomfort. Get plenty of rest, stay hydrated, and use over-the-counter medications to relieve symptoms. If symptoms persist or worsen, consult a healthcare professional.",
         "Asthma": "Asthma requires ongoing management. Follow your asthma action plan, avoid triggers, and take prescribed medications regularly. Seek medical help if you experience severe asthma symptoms or have difficulty controlling your condition.",
         "Allergic Rhinitis": "Allergic rhinitis (hay fever) can cause sneezing, runny nose, and itchy eyes. Try to avoid allergens, use antihistamines or nasal corticosteroids, and consider allergy testing for long-term management.",
-        "Epilepsy": "Epilepsy treatment aims to prevent seizures and improve quality of life. Take prescribed medications regularly, get enough sleep, and manage stress. Follow up with your healthcare provider for adjustments to your treatment plan as needed."
+        "Epilepsy": "Epilepsy treatment aims to prevent seizures and improve quality of life. Take prescribed medications regularly, get enough sleep, and manage stress. Follow up with your healthcare provider for adjustments to your treatment plan as needed.",
+        "Dermatitis": "Dermatitis can cause itchy, inflamed skin. Try to identify and avoid triggers, use moisturizers regularly, and apply topical steroids if prescribed. Consult a dermatologist if symptoms persist.",
+        "Gastroenteritis": "Gastroenteritis causes stomach pain, diarrhea, and nausea. Stay hydrated, eat bland foods, and rest. If symptoms persist or are severe, consult a healthcare professional."
     }
-
     return advice_map.get(disease, "Follow up with a healthcare professional for personalized advice.")
 
 # CSS styles
@@ -154,6 +157,7 @@ st.markdown(
         padding: 10px 15px;
         margin-bottom: 10px;
         max-width: 70%;
+        align-self: flex-end;
     }
     .bot-bubble {
         background-color: #FFA07A;
@@ -162,7 +166,7 @@ st.markdown(
         padding: 10px 15px;
         margin-bottom: 10px;
         max-width: 70%;
-        align-self: flex-end;
+        align-self: flex-start;
     }
     </style>
     """,
@@ -171,7 +175,7 @@ st.markdown(
 
 # Main function to run the Streamlit app
 def main():
-    st.title("Symptom Diagnosis Chatbot")
+    st.title("💬 Symptom Diagnosis Chatbot")
 
     # Initialize session state for conversation history
     if "conversation_history" not in st.session_state:
@@ -188,9 +192,9 @@ def main():
     # Display conversation history in reverse order
     for msg in reversed(st.session_state.conversation_history):
         if msg["user"]:
-            st.markdown('<div class="chat-container"><div class="user-bubble">' + msg["user"] + '</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="chat-container"><div class="user-bubble">{msg["user"]}</div></div>', unsafe_allow_html=True)
         if msg["bot"]:
-            st.markdown('<div class="chat-container"><div class="bot-bubble">' + msg["bot"] + '</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="chat-container"><div class="bot-bubble">{msg["bot"]}</div></div>', unsafe_allow_html=True)
 
 # Run the app
 if __name__ == "__main__":

@@ -43,3 +43,4 @@ def run():
         st.write("**Email:**", email)
         st.write("**Category:**", category)
         st.write("**Message:**", message)
+        st.write("**Support Email:**", "support@cheatcode.com")
